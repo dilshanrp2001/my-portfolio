@@ -1,0 +1,220 @@
+.hero-section {
+    min-height: 90vh;
+    /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at top right, var(--bg-secondary), var(--bg-primary));
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 10;
+}
+
+.greeting {
+    display: block;
+    font-size: 1.25rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: slideUp 0.8s forwards 0.2s;
+}
+
+.hero-name {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: slideUp 0.8s forwards 0.4s;
+}
+
+.hero-role {
+    font-size: 2rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: slideUp 0.8s forwards 0.6s;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: slideUp 0.8s forwards 0.8s;
+}
+
+.hero-intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: slideUp 0.8s forwards 1s;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: slideUp 0.8s forwards 1.2s;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+    border: 2px solid var(--accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards 0.5s;
+}
+
+.profile-wrapper {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--border));
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow);
+    border: 4px solid var(--bg-primary);
+    overflow: hidden;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blob {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--accent);
+    filter: blur(80px);
+    opacity: 0.2;
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 968px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        /* Visual first on mobile? Or text first? Standard is text, but image at top is fine. Let's keep text first for importance or image for impact. Actually normally image on top logic in flex column-reverse means text on top if source order is text then image. wait. flex-direction: column puts text on top. column-reverse puts visual on top. */
+        flex-direction: column;
+        text-align: center;
+        padding-top: 2rem;
+    }
+
+    .hero-name {
+        font-size: 3rem;
+    }
+
+    .hero-intro {
+        margin: 0 auto 2rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .blob {
+        width: 250px;
+        height: 250px;
+    }
+}

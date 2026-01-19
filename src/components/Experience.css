@@ -1,0 +1,66 @@
+.experience-section {
+    padding: 6rem 0;
+    background-color: var(--bg-secondary);
+}
+
+.experience-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.experience-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+    border-left: 4px solid var(--accent);
+}
+
+.experience-card:hover {
+    transform: translateX(5px);
+}
+
+.exp-role {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 2;
+}
+
+.exp-org {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 500;
+    flex: 2;
+}
+
+.exp-period {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    flex: 1;
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .experience-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .exp-period {
+        text-align: left;
+        font-size: 0.85rem;
+    }
+}
